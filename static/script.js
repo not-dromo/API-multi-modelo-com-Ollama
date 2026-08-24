@@ -8,6 +8,9 @@ async function enviarPergunta() {
     });
 
     const dados = await resposta.json();
-    console.log(dados.response);
+    console.log(dados.resposta);
 
+    const chat = document.getElementById('chat');
+    chat.innerHTML += `<p><b>Você:</b> ${pergunta}</p>`;
+    chat.innerHTML += `<p><b>Modelo:</b> ${dados.resposta}</p>`;
 }

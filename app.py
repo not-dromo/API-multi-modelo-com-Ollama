@@ -9,23 +9,13 @@ from ollama import ChatResponse
 app = Flask(__name__)
 
 
-
-# response: ChatResponse = chat(model='gemma3:1b', messages=[
-#     {
-#         'role': 'user',
-#         'content': 'Why is the sky blue?',
-#     },
-# ])
-
-# print(response['message']['content'])
-# print(response.message.content)
-
 # Rota para o menu
 @app.route('/menu')
 def index():
     
     return render_template('menu.html')
 
+# Rota para processar conversa e gerar conversa
 @app.route('/generate', methods=['POST'])
 def generate():
 
@@ -36,6 +26,8 @@ def generate():
     print(str(pergunta))
     print("\n\n")
 
+    # Envia a mensagem para o modelo gemma3 e aguarda resposta
+    # TODO: fazer o modelo não ser estático - permitir o usuário altera-lo
     resposta: ChatResponse = chat(model='gemma3:1b', messages=[
         {
             'role': 'user',
@@ -43,9 +35,11 @@ def generate():
         },
     ])
 
-    print(resposta.message.content)
+    texto_resposta = resposta.message.content
 
-    return "ok"
+    #print(texto_resposta)
+
+    return {"resposta": texto_resposta}, 200
 
 # Setup
 if __name__ == '__main__':
