@@ -1,5 +1,6 @@
 async function enviarPergunta() {
     const pergunta = document.getElementById('pergunta').value;
+    document.getElementById('pergunta').value = '';
 
     const resposta = await fetch('/generate', {
         method: 'POST',
@@ -14,3 +15,11 @@ async function enviarPergunta() {
     chat.innerHTML += `<p><b>Você:</b> ${pergunta}</p>`;
     chat.innerHTML += `<p><b>Modelo:</b> ${dados.resposta}</p>`;
 }
+
+
+document.getElementById('pergunta').addEventListener('keydown', function(evento) {
+    if (evento.key === 'Enter' && !evento.shiftKey){
+        evento.preventDefault();
+        enviarPergunta();
+    }
+});
