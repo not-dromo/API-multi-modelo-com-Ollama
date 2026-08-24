@@ -34,6 +34,16 @@ def generate():
 
     # Teste: dados foram enviados?
     print(str(pergunta))
+    print("\n\n")
+
+    resposta: ChatResponse = chat(model='gemma3:1b', messages=[
+        {
+            'role': 'user',
+            'content': pergunta,
+        },
+    ])
+
+    print(resposta.message.content)
 
     return "ok"
 
