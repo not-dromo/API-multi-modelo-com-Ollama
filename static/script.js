@@ -12,8 +12,8 @@ async function enviarPergunta() {
     console.log(dados.resposta);
 
     const chat = document.getElementById('chat');
-    chat.innerHTML += `<p><b>Você:</b> ${pergunta}</p>`;
-    chat.innerHTML += `<p><b>Modelo:</b> ${dados.resposta}</p>`;
+    chat.innerHTML += `<div class="mensagem-sua"><b>Você:</b> ${pergunta}</div>`;
+    chat.innerHTML += `<div class="mensagem-bot"><b>Modelo:</b> ${dados.resposta}</div>`;
 }
 
 

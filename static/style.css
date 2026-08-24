@@ -1,3 +1,49 @@
-* {
-    background-color: #F0F0F0;
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat{
+    border: 2px solid purple;
+    width: 700px;
+    height: 75vh;
+}
+
+.mensagem-sua {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.mensagem-bot {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.text-box-pai {
+    border: 2px solid red;
+    width: 700px;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+}
+
+.text-box {
+    width: 100vh;
 }

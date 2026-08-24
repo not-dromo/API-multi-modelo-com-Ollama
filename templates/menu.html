@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
 </head>
 <body>
     <h1>Welcome to Multi-Model Ollama chat!</h1>
-    <div id="chat"></div>
-    <textarea id="pergunta" placeholder="Digite sua mensagem"></textarea>
-    <button onclick="enviarPergunta()">Enviar</button>
+    <div id="chat" class="chat"></div>
+    <div class="text-box-pai">
+        <textarea id="pergunta" class="text-box" placeholder="Digite sua mensagem"></textarea>
+    </div>
+    <!--<button onclick="enviarPergunta()">Enviar</button>-->
 
 
 
