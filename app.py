@@ -21,17 +21,21 @@ app = Flask(__name__)
 # print(response.message.content)
 
 # Rota para o menu
-@app.route('/menu', methods=['GET'])
+@app.route('/menu')
 def index():
     
     return render_template('menu.html')
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    dados = request.get_json()
-    prompt = dados.get('prompt')
 
-    return 0
+    dados = request.get_json()
+    pergunta = dados.get('prompt')
+
+    # Teste: dados foram enviados?
+    print(str(pergunta))
+
+    return "ok"
 
 # Setup
 if __name__ == '__main__':
