@@ -5,7 +5,7 @@
 - [x] "GET /models" rota para mostrar modelos disponíveis
 - [x] validar se o modelo escolhido existe
 - [x] validar se o Ollama está disponível
-- [ ] tratar erro durante a geração
+- [x] tratar erro durante a geração
 - [ ] erro HTTP apropriado (400, 404, 500, etc...)
 - [ ] testes automatizados
 - [ ] documentação dos endpoints (Swagger/OpenAPI)

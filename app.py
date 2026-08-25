@@ -35,9 +35,14 @@ def generate():
     modelo = dados.get('model')
 
     try:
-        if modelo not in listar_modelos():
-            return {"erro": "esse modelo não existe"}, 400
+        modelos_disponiveis = listar_modelos()
+    except Exception:
+        return {"erro": "Ollama indisponível"}, 503
 
+    if modelo not in modelos_disponiveis:
+        return {"erro": "esse modelo não existe"}, 400
+
+    try:
         # Envia a mensagem para o modelo gemma3 e aguarda resposta
         resposta: ChatResponse = chat(model=modelo, messages=[
             {
@@ -46,12 +51,12 @@ def generate():
             },
         ])
 
-        texto_resposta = resposta.message.content
-
-        return {"resposta": texto_resposta}, 200
     except Exception:
-        return {"erro": "Ollama indisponível"}, 503
+        return {"erro": "falha ao gerar resposta"}, 500
 
+    texto_resposta = resposta.message.content
+    
+    return {"resposta": texto_resposta}, 200
 
 
 
