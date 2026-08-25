@@ -6,14 +6,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to Multi-Model Ollama chat!</h1>
-    <div id="chat" class="chat"></div>
-    <div class="text-box-pai">
-        <textarea id="pergunta" class="text-box" placeholder="Digite sua mensagem"></textarea>
+
+    <div class="modelo-pai">
+        <select id="modelo">
+            <option value="">Carregando Modelos...</option>
+        </select>
     </div>
-    <!--<button onclick="enviarPergunta()">Enviar</button>-->
 
+    <div class="chat-pai">
+        <h1>Welcome to Multi-Model Ollama chat!</h1>
+        
+        <div id="chat" class="chat">
+            <!--vazio-->
+        </div>
 
+        <div class="text-box-pai">
+            <textarea id="pergunta" class="text-box" placeholder="Digite sua mensagem"></textarea>
+        </div>
+        
+        <!--<button onclick="enviarPergunta()">Enviar</button>-->
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
