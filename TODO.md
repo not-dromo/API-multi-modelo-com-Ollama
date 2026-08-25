@@ -3,8 +3,8 @@
 - [x] não permitir envio de mensagem vazia
 - [x] não permitir o usuário enviar mensagem enquanto outra esta sendo processada
 - [x] "GET /models" rota para mostrar modelos disponíveis
-- [ ] validar se o modelo escolhido existe
-- [ ] validar se o Ollama está disponível
+- [x] validar se o modelo escolhido existe
+- [x] validar se o Ollama está disponível
 - [ ] tratar erro durante a geração
 - [ ] erro HTTP apropriado (400, 404, 500, etc...)
 - [ ] testes automatizados

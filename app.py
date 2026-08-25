@@ -21,7 +21,10 @@ def index():
 
 @app.route('/models', methods=['GET'])
 def models():
-    return {"models": listar_modelos()}, 200
+    try:
+        return {"models": listar_modelos()}, 200
+    except Exception:
+        return {"erro": "Ollama indisponível"}, 503
 
 # Rota para processar conversa e gerar conversa
 @app.route('/generate', methods=['POST'])
@@ -31,21 +34,23 @@ def generate():
     pergunta = dados.get('prompt')
     modelo = dados.get('model')
 
-    if modelo not in listar_modelos():
-        return {"erro": "esse modelo não existe"}, 400
+    try:
+        if modelo not in listar_modelos():
+            return {"erro": "esse modelo não existe"}, 400
 
-    # Envia a mensagem para o modelo gemma3 e aguarda resposta
-    resposta: ChatResponse = chat(model=modelo, messages=[
-        {
-            'role': 'user',
-            'content': pergunta,
-        },
-    ])
+        # Envia a mensagem para o modelo gemma3 e aguarda resposta
+        resposta: ChatResponse = chat(model=modelo, messages=[
+            {
+                'role': 'user',
+                'content': pergunta,
+            },
+        ])
 
-    texto_resposta = resposta.message.content
+        texto_resposta = resposta.message.content
 
-    return {"resposta": texto_resposta}, 200
-
+        return {"resposta": texto_resposta}, 200
+    except Exception:
+        return {"erro": "Ollama indisponível"}, 503
 
 
 
