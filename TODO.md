@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] não permitir envio de mensagem vazia
+- [x] não permitir envio de mensagem vazia
 - [ ] não permitir o usuário enviar mensagem enquanto outra esta sendo processada
 - [ ] "GET /models" rota para mostrar modelos disponíveis
 - [ ] validar se o modelo escolhido existe

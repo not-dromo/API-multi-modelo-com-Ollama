@@ -1,5 +1,11 @@
 async function enviarPergunta() {
     const pergunta = document.getElementById('pergunta').value;
+
+    if (pergunta.trim() === ''){
+        alert("Erro! Mensagem vazia.")
+        return;
+    }
+
     document.getElementById('pergunta').value = '';
 
     const resposta = await fetch('/generate', {
