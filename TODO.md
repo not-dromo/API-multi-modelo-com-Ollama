@@ -1,7 +1,7 @@
 # TODO
 
 - [x] não permitir envio de mensagem vazia
-- [ ] não permitir o usuário enviar mensagem enquanto outra esta sendo processada
+- [x] não permitir o usuário enviar mensagem enquanto outra esta sendo processada
 - [ ] "GET /models" rota para mostrar modelos disponíveis
 - [ ] validar se o modelo escolhido existe
 - [ ] validar se o Ollama está disponível
