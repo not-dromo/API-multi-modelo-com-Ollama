@@ -31,6 +31,9 @@ def generate():
     pergunta = dados.get('prompt')
     modelo = dados.get('model')
 
+    if modelo not in listar_modelos():
+        return {"erro": "esse modelo não existe"}, 400
+
     # Envia a mensagem para o modelo gemma3 e aguarda resposta
     resposta: ChatResponse = chat(model=modelo, messages=[
         {
