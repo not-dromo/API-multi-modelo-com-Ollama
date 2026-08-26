@@ -15,7 +15,7 @@ load_dotenv()
 FLASK_PORT = int(os.getenv('FLASK_PORT', 5000))
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+app.json.ensure_ascii = False
 swagger = Swagger(app)
 
 
@@ -89,9 +89,15 @@ def generate():
         description: Ollama indisponível
     """
 
-    dados = request.get_json()
+    dados = request.get_json(silent=True)
+    if not dados:
+        return {"erro": "corpo da requisição inválido ou ausente"}, 400
+    
     pergunta = dados.get('prompt')
     modelo = dados.get('model')
+
+    if not pergunta or pergunta.strip() == '':
+        return {"erro": "prompt vazio"}, 400
 
     try:
         modelos_disponiveis = listar_modelos()

@@ -8,7 +8,7 @@
 - [x] tratar erro durante a geração
 - [x] testes automatizados
 - [x] documentação dos endpoints (Swagger/OpenAPI)
-- [ ] configuração externa, URL/porta da Ollama não deve estar hardcoded no código
+- [x] configuração externa, URL/porta da Ollama não deve estar hardcoded no código
+- [x] erro HTTP apropriado (400, 404, 500, etc...)
 - [ ] não permitir o texto sair da janela de resposta
 - [ ] tempo de resposta do modelo
-- [ ] erro HTTP apropriado (400, 404, 500, etc...)
