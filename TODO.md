@@ -12,3 +12,7 @@
 - [x] erro HTTP apropriado (400, 404, 500, etc...)
 - [x] não permitir o texto sair da janela de resposta
 - [ ] tempo de resposta do modelo
+- [ ]Arquivos para reprodução
+- [ ]Experimento com 2 modelos
+- [ ]README
+- [ ]Short paper
