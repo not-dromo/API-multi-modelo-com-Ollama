@@ -67,3 +67,22 @@ def test_generate_erro_na_geracao(client):
 
         assert resposta.status_code == 500
         assert 'erro' in dados
+
+def test_generate_prompt_vazio(client):
+    with patch('app.listar_modelos', return_value=['gemma3:1b']):
+        resposta = client.post('/generate', json={
+            "model": "gemma3:1b",
+            "prompt": "   "
+        })
+        dados = resposta.get_json()
+
+        assert resposta.status_code == 400
+        assert 'erro' in dados
+
+
+def test_generate_corpo_ausente(client):
+    resposta = client.post('/generate')
+    dados = resposta.get_json()
+
+    assert resposta.status_code == 400
+    assert 'erro' in dados
