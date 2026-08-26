@@ -11,8 +11,8 @@
 - [x] configuração externa, URL/porta da Ollama não deve estar hardcoded no código
 - [x] erro HTTP apropriado (400, 404, 500, etc...)
 - [x] não permitir o texto sair da janela de resposta
-- [ ] tempo de resposta do modelo
-- [ ]Arquivos para reprodução
-- [ ]Experimento com 2 modelos
-- [ ]README
-- [ ]Short paper
+- [x] tempo de resposta do modelo
+- [x] arquivos para reprodução e experimento com 2 modelos
+- [ ] requirements.txt
+- [ ] README
+- [ ] short paper
