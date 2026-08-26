@@ -28,7 +28,7 @@ def test_models_ollama_indisponivel(client):
 def test_generate_sucesso(client):
     class RespostaFalsa:
         class message:
-            content = "resposta gerada pelo modelo"
+            content = "resposta genérica, hello world!"
 
     with patch('app.listar_modelos', return_value=['gemma3:1b']), \
          patch('app.chat', return_value=RespostaFalsa()):
@@ -40,7 +40,9 @@ def test_generate_sucesso(client):
         dados = resposta.get_json()
 
         assert resposta.status_code == 200
-        assert dados == {"resposta": "resposta gerada pelo modelo"}
+        assert dados['model'] == 'gemma3:1b'
+        assert dados['response'] == 'resposta genérica, hello world!'
+        assert 'time' in dados
 
 
 def test_generate_modelo_invalido(client):

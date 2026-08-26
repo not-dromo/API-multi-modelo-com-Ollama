@@ -5,6 +5,7 @@ from ollama_service import listar_modelos
 from flasgger import Swagger
 import os
 from dotenv import load_dotenv
+import time
 
 
 
@@ -81,6 +82,8 @@ def generate():
     responses:
       200:
         description: Resposta gerada com sucesso
+        examples:
+            application/json: {"model": "gemma3:1b", "response": "...", "time": 2.81}
       400:
         description: Modelo inválido ou prompt vazio
       500:
@@ -108,6 +111,8 @@ def generate():
         return {"erro": "esse modelo não existe"}, 400
 
     try:
+        inicio = time.perf_counter()
+
         # Envia a mensagem para o modelo gemma3 e aguarda resposta
         resposta: ChatResponse = chat(model=modelo, messages=[
             {
@@ -116,12 +121,19 @@ def generate():
             },
         ])
 
+        fim = time.perf_counter()
+        tempo_total = fim - inicio
+
     except Exception:
         return {"erro": "falha ao gerar resposta"}, 500
 
     texto_resposta = resposta.message.content
 
-    return {"resposta": texto_resposta}, 200
+    return {
+        "model": modelo,
+        "response": texto_resposta,
+        "time": round(tempo_total, 2)
+    }, 200
 
 
 
