@@ -6,8 +6,8 @@
 - [x] validar se o modelo escolhido existe
 - [x] validar se o Ollama está disponível
 - [x] tratar erro durante a geração
-- [ ] testes automatizados
-- [ ] documentação dos endpoints (Swagger/OpenAPI)
+- [x] testes automatizados
+- [x] documentação dos endpoints (Swagger/OpenAPI)
 - [ ] configuração externa, URL/porta da Ollama não deve estar hardcoded no código
 - [ ] não permitir o texto sair da janela de resposta
 - [ ] tempo de resposta do modelo
