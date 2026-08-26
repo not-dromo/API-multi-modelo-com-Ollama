@@ -3,12 +3,19 @@ from ollama import chat
 from ollama import ChatResponse
 from ollama_service import listar_modelos
 from flasgger import Swagger
+import os
+from dotenv import load_dotenv
 
 
 
 
+
+load_dotenv()
+
+FLASK_PORT = int(os.getenv('FLASK_PORT', 5000))
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 swagger = Swagger(app)
 
 
@@ -114,7 +121,7 @@ def generate():
 
 # Setup
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=FLASK_PORT)
 
 
 
