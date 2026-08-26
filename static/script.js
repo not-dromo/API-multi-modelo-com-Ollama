@@ -47,6 +47,7 @@ async function enviarPergunta() {
         const chat = document.getElementById('chat');
         chat.innerHTML += `<div class="mensagem-sua"><b>Você:</b> ${pergunta}</div>`;
         chat.innerHTML += `<div class="mensagem-bot"><b>Modelo ${modeloEscolhido}:</b> ${dados.resposta}</div>`;
+        chat.scrollTop = chat.scrollHeight;
     } finally {
         processando = false;
         document.getElementById('pergunta').disabled = false;

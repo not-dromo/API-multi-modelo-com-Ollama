@@ -47,3 +47,9 @@ h1 {
 .text-box {
     width: 100vh;
 }
+
+#chat {
+    height: 400px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}

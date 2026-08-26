@@ -10,5 +10,5 @@
 - [x] documentação dos endpoints (Swagger/OpenAPI)
 - [x] configuração externa, URL/porta da Ollama não deve estar hardcoded no código
 - [x] erro HTTP apropriado (400, 404, 500, etc...)
-- [ ] não permitir o texto sair da janela de resposta
+- [x] não permitir o texto sair da janela de resposta
 - [ ] tempo de resposta do modelo
