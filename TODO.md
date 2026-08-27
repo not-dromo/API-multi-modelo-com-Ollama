@@ -13,6 +13,6 @@
 - [x] não permitir o texto sair da janela de resposta
 - [x] tempo de resposta do modelo
 - [x] arquivos para reprodução e experimento com 2 modelos
-- [ ] requirements.txt
-- [ ] README
-- [ ] short paper
+- [x] requirements.txt
+- [x] README
+- [x] short paper

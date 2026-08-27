@@ -102,3 +102,4 @@ Este projeto usa [gitmoji](https://gitmoji.dev) para categorizar commits:
 - ⚙️ configuração
 - 💄 estilo/CSS
 - 📦 dependências
+- 🔖 versão final - entrega

@@ -1,4 +1,4 @@
-from flask import Flask, session, request, render_template, redirect, url_for,  abort
+from flask import Flask, request, render_template
 from ollama import chat
 from ollama import ChatResponse
 from ollama_service import listar_modelos
